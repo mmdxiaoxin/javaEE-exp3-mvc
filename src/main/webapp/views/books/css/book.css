@@ -1,0 +1,28 @@
+#addTab{
+    border:1px solid #ccc;
+    width: 500px;
+    margin: auto;
+    border-collapse: collapse;
+}
+td,th{
+    border:1px solid #ccc;
+}
+#tdBut{
+    text-align: center;
+}
+#showTab{
+    border:1px solid #ccc;
+    width: 800px;
+    margin: auto;
+    border-collapse: collapse;
+}
+#pageSize,#goPageNum{
+    width: 60px;
+}
+#showHeader{
+    background-color:#FFFFCC ;
+    font-size: 60px;
+}
+tr[class='odd']{
+    background-color: #DDA0DD;
+}
