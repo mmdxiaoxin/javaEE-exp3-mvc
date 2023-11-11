@@ -1,4 +1,4 @@
-package com.example.exp3.service;
+package com.example.exp3.filters;
 
 import java.io.IOException;
 import java.util.Objects;
