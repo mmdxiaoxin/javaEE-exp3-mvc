@@ -43,6 +43,7 @@
 <body>
 <div class="container">
     <h1>抱歉，出现了错误！</h1>
+    <jsp:useBean id="msg" scope="request" type="java.lang.String"/>
     <p>错误原因：${msg}</p>
     <p><a href="#" class="back-link">返回</a></p>
 </div>
