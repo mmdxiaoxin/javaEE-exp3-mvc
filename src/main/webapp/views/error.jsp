@@ -2,8 +2,8 @@
   Created by IntelliJ IDEA.
   User: mmdxiaoxin
   Date: 2023/11/10
-  Time: 14:21
-  用于编辑图书信息的页面
+  Time: 14:22
+  显示错误信息的页面
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-
+Hi, I am sorry! there has an error!!
+<p>
+    Reason:${msg}
+</p>
 </body>
 </html>
