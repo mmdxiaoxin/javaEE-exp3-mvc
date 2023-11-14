@@ -7,7 +7,7 @@ public class Book {
     private String name;
     private String author;
     private String publish;
-    private Date publishdate;
+    private Date publishDate;
     private int page;
     private float price;
     private String content;
@@ -44,12 +44,12 @@ public class Book {
         this.publish = publish;
     }
 
-    public Date getPublishdate() {
-        return publishdate;
+    public Date getPublishDate() {
+        return publishDate;
     }
 
-    public void setPublishdate(Date publishdate) {
-        this.publishdate = publishdate;
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
     }
 
     public int getPage() {

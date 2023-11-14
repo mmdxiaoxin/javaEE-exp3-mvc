@@ -1,12 +1,14 @@
 package com.example.exp3.daos;
 
 import com.example.exp3.models.entity.Book;
-import com.example.exp3.utils.PageRequestUtil;
 
 import java.util.List;
 
 
 public interface BookDAO {
+    //返回全部书信息
+    public List<Book> list();
+
     //增加（保存）书信息
     public int save(Book book);
 
@@ -18,10 +20,4 @@ public interface BookDAO {
 
     //查询书信息(根据ID查询)
     public Book queryById(int id);
-
-    //查询分页总条数
-    public int queryCountForPage(PageRequestUtil pageRequestUtil);
-
-    //查询分页数据
-    public List<Book> queryListForPage(PageRequestUtil pageRequestUtil);
 }

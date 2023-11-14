@@ -6,14 +6,46 @@
   显示错误信息的页面
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>错误页面</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #d9534f;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-Hi, I am sorry! there has an error!!
-<p>
-    Reason:${msg}
-</p>
+<div class="container">
+    <h1>抱歉，出现了错误！</h1>
+    <p>错误原因：${msg}</p>
+    <p><a href="#" class="back-link">返回</a></p>
+</div>
 </body>
 </html>
+

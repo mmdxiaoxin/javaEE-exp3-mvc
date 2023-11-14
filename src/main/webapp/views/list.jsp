@@ -7,44 +7,53 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>图书信息详细列表</title>
     <style>
-        td, th {
-            border: 1px solid #ccc;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            margin: 20px;
         }
 
-        #tdBut {
-            text-align: center;
-        }
-
-        #showTab {
-            border: 1px solid #ccc;
-            width: 800px;
-            margin: auto;
+        table {
             border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
         }
 
-        #pageSize, #goPageNum {
-            width: 60px;
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
         }
 
-        #showHeader {
+        th {
             background-color: #ffe8cc;
-            font-size: 60px;
+            font-size: 24px; /* 放大字体 */
+            text-align: center; /* 居中文本 */
         }
 
-        tr[class='odd'] {
+        tr:nth-child(even) {
             background-color: #DDA0DD;
         }
 
+        a {
+            text-decoration: none;
+            color: #007bff;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
-<table id="showTab">
+<table>
     <tr>
-        <th colspan="8" id="showHeader">图书信息详细列表</th>
+        <th colspan="8">图书信息详细列表</th>
     </tr>
     <tr>
         <th>书名</th>
@@ -56,51 +65,29 @@
         <th>内容摘要</th>
         <th>操作</th>
     </tr>
-    <c:forEach items="${result.content}" var="book" varStatus="stat">
-        <tr ${stat.index%2==0 ? 'class=odd' : ''}>
-            <th>${book.name}</th>
-            <th>${book.author}</th>
-            <th>${book.publish}</th>
-            <th>${book.publishdate}</th>
-            <th>${book.page}</th>
-            <th>${book.price}</th>
-            <th>${book.content}</th>
-            <th>
+    <jsp:useBean id="result" scope="request" type="java.util.List"/>
+    <c:forEach items="${result}" var="book" varStatus="stat">
+        <tr ${stat.index%2==0 ? 'class="even"' : ''}>
+            <td>${book.name}</td>
+            <td>${book.author}</td>
+            <td>${book.publish}</td>
+            <td>${book.publishDate}</td>
+            <td>${book.page}</td>
+            <td>${book.price}</td>
+            <td>${book.content}</td>
+            <td>
                 <a href="${pageContext.request.contextPath}/book-ctrl?action=edit&id=${book.id}">修改</a>
                 <a href="${pageContext.request.contextPath}/book-ctrl?action=delete&id=${book.id}">删除</a>
-            </th>
+            </td>
         </tr>
     </c:forEach>
     <tr>
-        <td colspan="8" id="tdBut">
-            <!-- οnclick="javascript:window.location.href  点击后跳转到 -->
-            <input type="button" value="继续添加"
-                   onclick="javascript:window.location.href='${pageContext.request.contextPath}/BookServlet?type=goAdd'">&nbsp;&nbsp;&nbsp;
-            <a href="${pageContext.request.contextPath}/book-ctrl?action=list&pageNum=${result.firstPage}&pageSize=${result.pageSize}">首页</a>
-            <a href="${pageContext.request.contextPath}/book-ctrl?action=list&pageNum=${result.prePage}&pageSize=${result.pageSize}">上一页</a>
-            <a href="${pageContext.request.contextPath}/book-ctrl?action=list&pageNum=${result.nextPage}&pageSize=${result.pageSize}">下一页</a>
-            <a href="${pageContext.request.contextPath}/book-ctrl?action=list&pageNum=${result.lastPage}&pageSize=${result.pageSize}">尾页</a>
-            总共${result.totalSize}条，共${result.pageNum}/${result.totalPages}页，每页显示<input id="pageSize"
-                                                                                                onchange="changePageSize(this.value)"
-                                                                                                type="number"
-                                                                                                value="${result.pageSize}">条
-            跳转到<input id="goPageNum" type="number" value="${result.pageNum}">页<input type="button" value="go"
-                                                                                         onclick="goPageNum('${result.pageSize}')">
+        <td colspan="8">
+            <a href="${pageContext.request.contextPath}/book-ctrl?action=add">添加图书</a>
         </td>
     </tr>
 </table>
 </body>
-<script>
-    function changePageSize(val) {
-        window.location.href = "/exp3/BookServlet?type=list&pageSize=" + val;
-    }
-
-    function goPageNum(val) {
-        //获取id为goPageNum的input里面的数值
-        const num = document.getElementById("goPageNum").value;
-        window.location.href = "/exp3/BookServlet?type=list&pageSize=" + val + "&pageNum=" + num;
-    }
-
-</script>
 </html>
+
 

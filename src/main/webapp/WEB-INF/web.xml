@@ -18,5 +18,13 @@
         <filter-name>EncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    <!-- 登陆验证过滤器 -->
+    <!--    <filter>-->
+    <!--        <filter-name>AuthenticationFilter</filter-name>-->
+    <!--        <filter-class>com.example.exp3.filters.AuthenticationFilter</filter-class>-->
+    <!--    </filter>-->
+    <!--    <filter-mapping>-->
+    <!--        <filter-name>AuthenticationFilter</filter-name>-->
+    <!--        <url-pattern>/*</url-pattern>-->
+    <!--    </filter-mapping>-->
 </web-app>
