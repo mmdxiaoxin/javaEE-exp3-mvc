@@ -5,7 +5,7 @@
   Time: 14:21
   用于编辑图书信息的页面
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>

@@ -7,17 +7,17 @@ import java.util.List;
 
 public interface BookDAO {
     //返回全部书信息
-    public List<Book> list();
+    List<Book> list();
 
     //增加（保存）书信息
-    public int save(Book book);
+    int save(Book book);
 
     //删除书信息(根据ID删除)
-    public int deleteById(int id);
+    int deleteById(int id);
 
     //修改书信息(根据ID修改)
-    public int updateById(int id, Book book);
+    int updateById(int id, Book book);
 
     //查询书信息(根据ID查询)
-    public Book queryById(int id);
+    Book queryById(int id);
 }
