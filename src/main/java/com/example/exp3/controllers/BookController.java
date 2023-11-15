@@ -25,7 +25,7 @@ public class BookController extends HttpServlet {
                 request.setAttribute("result", books);
                 request.getRequestDispatcher("/views/list.jsp").forward(request, response);
             } else if ("add".equals(action)) {
-                request.getRequestDispatcher("/views/edit.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/add.jsp").forward(request, response);
             } else if ("edit".equals(action)) {
                 String id = request.getParameter("id");
                 Book book = booksService.getById(Integer.parseInt(id));
