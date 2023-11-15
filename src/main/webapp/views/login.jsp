@@ -5,46 +5,73 @@
   Time: 14:22
   登录页面
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <title>login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #495057;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        #loginbut {
+            text-align: center;
+        }
+
+        #loginbut input {
+            margin-right: 10px;
+        }
+
+        #message {
+            display: block;
+            margin-top: 10px;
+            color: #d9534f;
+        }
+    </style>
 </head>
 <body>
-<!-- action 属性规定当提交表单时，向/UsersLoginServlet发送表单数据。使用Post传输的数据，可以通过设置编码的方式正确转化中文-->
-<form action="${pageContext.request.contextPath}/UsersLoginServlet" method="post">
-    <table id="login in">
-        <tr>
-            <td class="label">登录名:</td>
-            <td class="inputContent"><label>
-                <input type="text" name="username">
-            </label></td>
-        </tr>
-        <tr>
-            <td class="label">登录密码:</td>
-            <td class="inputContent"><label>
-                <input type="password" name="password">
-            </label></td>
-        </tr>
-        <tr id="loginbut">
-            <td colspan="2">
-                <!-- <input type="submit"> 定义为一个提交按钮。提交按钮会把表单数据发送到服务器。 -->
-                <input type="submit" value="登录">
-                <!-- 这是表单重置按钮,点击后会将重置按钮所在的表单中填写的内容清空 -->
-                <input type="reset" value="取消">
-            </td>
-        </tr>
-        <tr id="loginbut1">
-            <td colspan="2">
-                <!-- <span>标签是行内元素标签，不分行 -->
-                <span>&nbsp
-                    <!-- 还没设置 -->
-                    ${message}
-                </span>
-            </td>
-        </tr>
-    </table>
+<form action="${pageContext.request.contextPath}/user-ctrl?action=login" method="post">
+    <h2>用户登录</h2>
+    <label for="username">登录名:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">登录密码:</label>
+    <input type="password" id="password" name="password" required>
+
+    <div id="loginbut">
+        <input type="submit" value="登录">
+        <input type="reset" value="取消">
+    </div>
+    <span id="message">${message}</span>
 </form>
 </body>
 </html>
+
 
