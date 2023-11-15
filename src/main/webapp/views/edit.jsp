@@ -53,29 +53,29 @@
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/book-ctrl?action=save" method="post">
-    <h2>添加图书</h2>
+    <h2>编辑图书</h2>
     <label for="name">书名：</label>
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="name" name="name" required value="${book.name}">
 
     <label for="author">作者：</label>
-    <input type="text" id="author" name="author" required>
+    <input type="text" id="author" name="author" required value="${book.author}">
 
     <label for="publish">出版社：</label>
-    <input type="text" id="publish" name="publish" required>
+    <input type="text" id="publish" name="publish" required value="${book.publish}">
 
     <label for="publishDate">出版日期：</label>
-    <input type="date" id="publishDate" name="publishDate" required>
+    <input type="date" id="publishDate" name="publishDate" required value="${book.publishDate}">
 
     <label for="page">页数：</label>
-    <input type="number" id="page" name="page" required>
+    <input type="number" id="page" name="page" required value="${book.page}">
 
     <label for="price">价格：</label>
-    <input type="number" id="price" name="price" required>
+    <input type="number" id="price" name="price" required value="${book.price}">
 
     <label for="content">内容摘要：</label>
-    <textarea id="content" name="content" rows="4" required style="width: 100%"></textarea>
+    <textarea id="content" name="content" rows="4" required style="width: 100%">${book.content}"</textarea>
 
-    <button type="submit">添加图书</button>
+    <button type="submit">保存修改</button>
 </form>
 </body>
 </html>
